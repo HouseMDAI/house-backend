@@ -13,4 +13,4 @@ class DoctorResponseAnswer(BaseModel):
     text: str
 
 class DoctorResponseQuestionary(BaseModel):
-    questions: list[Question]
+    questions: list[str]
