@@ -3,9 +3,9 @@ from openai import OpenAI
 from .models import FilledQuestionary
 import ast
 
+
 api_key = os.environ.get("API_KEY")
 client = OpenAI(api_key=api_key)
-
 
 def get_response(user_card: str, message: str, filled_questionary: FilledQuestionary, max_tokens=200):
     format_question = """{"questions":[{"text":"first question"},{"text":"second question"}]}"""
@@ -16,11 +16,13 @@ def get_response(user_card: str, message: str, filled_questionary: FilledQuestio
     Your task is to ask short questions and give your opinion and advices.
     Your questions are accamulated in the filled questionary, which is empty in the first itteration. 
     
-    Try to strive to about 5 questions per request and try to not repeat questions in different requests.
-    Ask questions only in the json format {format_question}
+    Strive to about 1-2 questions per iteration and up to 6 questions in total (can be less). Questions must be short, clear, shouldn't repeat, 
+    and should be relevant to the user's health condition, and should require easy answers.
+    Ask questions only in the json format {format_question}.
 
-    Number of answered questions: {len(filled_questionary.filledQuestions)}
-    If the Number of answered questions is more then 5, you should stop asking questions and provide an give your final opinion, assumption or advice in json format {format_advice}.
+    Number of answered questions: {len(filled_questionary.filled_questions)}
+    If the Number of answered questions is more then 6, you should stop asking questions an`d provide an give your final opinion, 
+    assumption or advice only in the json format {format_advice}.
 
     """
     prompt = f"""request message: {message}; anamnesis: {user_card}; filled questionary: {filled_questionary}"""
