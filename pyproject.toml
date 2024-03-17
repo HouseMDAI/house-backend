@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "hackaton"
+version = "0.1.0"
+description = ""
+authors = ["Mark Parker <mark@parker-programs.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.110.0"
+uvicorn = "^0.28.0"
+pydantic = "^2.6.4"
+python-dotenv = "^1.0.1"
+openai = "^1.14.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

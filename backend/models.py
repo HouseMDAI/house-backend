@@ -5,7 +5,7 @@ class Question(BaseModel):
     text: str
 
 class FilledQuestionary(BaseModel):
-    filledQuestions: dict[Question, str]
+    filled_questions: dict[str, str]
 
 #   Answers
 

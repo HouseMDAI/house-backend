@@ -39,6 +39,11 @@ class UserCard(BaseModel):
     symptomsConcerns: dict[SymptomsConcerns, str]
     additionalNotes: dict[AdditionalNotes, str] 
 
-
+class UserCardSimple(BaseModel):
+    sex: str
+    age: int
+    weight: int
+    height: int
+    special_conditions: str
     
 

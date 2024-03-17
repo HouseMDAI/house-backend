@@ -4,7 +4,6 @@ from .models import FilledQuestionary
 
 
 api_key = os.environ.get("API_KEY")
-print("api_key", api_key)
 client = OpenAI(api_key=api_key)
 
 def get_response(user_card: str, message: str, filled_questionary: FilledQuestionary, max_tokens=100):
