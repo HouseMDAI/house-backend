@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 from .models import (Question, FilledQuestionary, DoctorResponseAnswer, DoctorResponseQuestionary)
 from .user_card import UserCard
 from .prompting import get_response
@@ -16,5 +16,5 @@ def read_root():
     # ...
 
 @app.post("/doctor", response_model = DoctorResponseAnswer | DoctorResponseQuestionary)
-def message(user_card: UserCard, filled_questionary: FilledQuestionary, message: str = Body(...)):
+def message(user_card: UserCard, message: str, filled_questionary: FilledQuestionary):
     return get_response(user_card, message, filled_questionary) # TODO: validate model format
